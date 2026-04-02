@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack | Customized Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Customized Dashboard</h1>
+            <div class="calendar-strip">
+                <span class="day">Mon</span>
+                <span class="day">Tue</span>
+                <span class="day active">Wed</span>
+                <span class="day">Thu</span>
+                <span class="day">Fri</span>
+                <span class="day">Sat</span>
+                <span class="day">Sun</span>
+            </div>
+        </header>
+
+        <div class="summary-grid">
+            <div class="card income-card">
+                <p>Monthly Income</p>
+                <h2 id="total-income">₹0</h2>
+            </div>
+            <div class="card expense-card">
+                <p>Monthly Expense</p>
+                <h2 id="total-expense">₹0</h2>
+            </div>
+        </div>
+
+        <div class="card balance-card">
+            <div class="balance-info">
+                <p>Available Balance</p>
+                <h1 id="total-balance">₹0</h1>
+            </div>
+        </div>
+
+        <div class="action-bar">
+            <button class="btn btn-income" onclick="openModal('income')">+ Add Income</button>
+            <button class="btn btn-expense" onclick="openModal('expense')">- Add Expense</button>
+        </div>
+
+        <section class="transactions">
+            <h3>Today's Transactions</h3>
+            <div id="transaction-list" class="list-container">
+                <p class="empty-msg">No transactions yet.</p>
+            </div>
+        </section>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <h3 id="modal-title">Add Transaction</h3>
+                <input type="text" id="desc" placeholder="Description (e.g. Lunch, Snacks)">
+                <input type="number" id="amount" placeholder="Amount (₹)">
+                <select id="category">
+                    <option value="🍔 Food">Food</option>
+                    <option value="💰 Salary">Salary</option>
+                    <option value="🎬 Ent.">Entertainment</option>
+                    <option value="🚗 Transport">Transport</option>
+                    <option value="🛍️ Shopping">Shopping</option>
+                </select>
+                <input type="text" id="friends" placeholder="Split with (Names)">
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button class="btn btn-primary" onclick="saveTransaction()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
